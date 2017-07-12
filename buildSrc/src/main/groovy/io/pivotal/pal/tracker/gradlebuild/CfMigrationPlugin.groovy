@@ -24,7 +24,7 @@ class CfMigrationPlugin implements Plugin<Project> {
                         Thread.start {
                             tunnelProcess = "cf ssh -N -L 63306:${getMysqlHost(appName)}:3306 $appName".execute()
                         }
-                        sleep 5_000L
+                        sleep 10_000L
                     }
                 }
 
@@ -38,7 +38,10 @@ class CfMigrationPlugin implements Plugin<Project> {
                 task("cfMigrate", type: FlywayMigrateTask, group: "Migration") {
                     dependsOn "openTunnel"
                     finalizedBy "closeTunnel"
-                    doFirst { extension = buildFlywayExtension(project, appName) }
+                    doFirst {
+                        println "Running Migration $appName"
+                        extension = buildFlywayExtension(project, appName)
+                    }
                 }
 
                 task("cfRepair", type: FlywayRepairTask, group: "Migration") {
