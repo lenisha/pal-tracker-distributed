@@ -1,6 +1,7 @@
 applications:
 - name: tracker-backlog
   path: ./applications/backlog-server/build/libs/backlog-server.jar
+  buildpack: java_buildpack_offline
   host: backlog-pal-en
   memory: 1G
   instances: 1
@@ -15,3 +16,4 @@ applications:
   - tracker-circuit-breaker-dashboard
   - tracker-amqp
   - tracker-sso
+  - tracker-config-server

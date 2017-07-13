@@ -1,6 +1,7 @@
 applications:
 - name: tracker-zipkin
   path: ./platform-services/zipkin-server/build/libs/zipkin-server.jar
+  buildpack: java_buildpack_offline
   host: zipkin-pal-en
   memory: 1G
   instances: 1

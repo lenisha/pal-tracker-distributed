@@ -1,6 +1,7 @@
 applications:
 - name: tracker-timesheets
   path: ./applications/timesheets-server/build/libs/timesheets-server.jar
+  buildpack: java_buildpack_offline
   host: timesheets-pal-en
   memory: 1G
   instances: 1
@@ -15,3 +16,4 @@ applications:
   - tracker-circuit-breaker-dashboard
   - tracker-amqp
   - tracker-sso
+  - tracker-config-server

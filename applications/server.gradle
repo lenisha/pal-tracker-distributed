@@ -22,6 +22,8 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-sleuth-stream"
     compile "org.springframework.cloud:spring-cloud-starter-stream-rabbit"
 
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-config-client"
+
     compile "com.zaxxer:HikariCP:2.3.7"
     compile "mysql:mysql-connector-java:$mysqlVersion"
     compile "ch.qos.logback:logback-classic:1.1.11"
@@ -34,5 +36,6 @@ bootRun.environment([
         "SECURITY_OAUTH2_CLIENT_CLIENT_ID": "3e81049c-7455-4851-a55b-f9e289089fb3",
         "SECURITY_OAUTH2_CLIENT_CLIENT_SECRET": "95fb07f3-c370-4e75-ba58-a92521cc3aa9",
         "SECURITY_USER_NAME": "actuator",
-        "SECURITY_USER_PASSWORD": "operations4red"
+        "SECURITY_USER_PASSWORD": "operations4red",
+        "REGISTRATION_SERVER_ENDPOINT": "http://registration-server"
 ])
