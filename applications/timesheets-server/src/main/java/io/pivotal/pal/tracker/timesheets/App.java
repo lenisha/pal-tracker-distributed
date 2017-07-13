@@ -1,3 +1,4 @@
+
 package io.pivotal.pal.tracker.timesheets;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,12 +14,13 @@ import org.springframework.web.client.RestOperations;
 
 import java.util.TimeZone;
 
-@EnableResourceServer
+
 @EnableWebSecurity
+@EnableResourceServer
 @EnableCircuitBreaker
 @EnableEurekaClient
 @SpringBootApplication
-@ComponentScan({"io.pivotal.pal.tracker.timesheets", "io.pivotal.pal.tracker.restsupport","io.pivotal.pal.tracker.timesheets"})
+@ComponentScan({"io.pivotal.pal.tracker.timesheets", "io.pivotal.pal.tracker.restsupport"})
 public class App {
 
     public static void main(String[] args) {
@@ -28,8 +30,8 @@ public class App {
 
     @Bean
     ProjectClient projectClient(
-        RestOperations restOperations,
-        @Value("${registration.server.endpoint}") String registrationEndpoint
+            RestOperations restOperations,
+            @Value("${registration.server.endpoint}") String registrationEndpoint
     ) {
         return new ProjectClient(restOperations, registrationEndpoint);
     }
